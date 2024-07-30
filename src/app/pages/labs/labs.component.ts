@@ -11,4 +11,22 @@ import { Component } from '@angular/core';
 export class LabsComponent {
   welcome = 'Hola';
   tasks = ['Instalacion', 'Orden', 'Democracia'];
+
+  name = 'Diego';
+  disabled = true;
+  img = 'https://ik.imagekit.io/hpapi/harry.jpg';
+
+  //Metodo al hacer click en un boton 
+  clickHandler(){
+    alert('Hola');
+  }
+  changeHandler(event: Event){
+    console.log(event)
+  }
+
+  keyDownHandler(event: KeyboardEvent){
+    const input = event.target as HTMLInputElement;
+    console.log(input.value);
+  }
+
 }
