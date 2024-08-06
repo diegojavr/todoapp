@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-labs',
@@ -10,9 +10,9 @@ import { Component } from '@angular/core';
 })
 export class LabsComponent {
   welcome = 'Hola';
-  tasks = ['Instalacion', 'Orden', 'Democracia'];
+  tasks = signal(['Instalacion', 'Orden', 'Democracia']);
 
-  name = 'Diego';
+  name = signal('Diego');
   disabled = true;
   img = 'https://ik.imagekit.io/hpapi/harry.jpg';
 
@@ -21,7 +21,10 @@ export class LabsComponent {
     alert('Hola');
   }
   changeHandler(event: Event){
-    console.log(event)
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.name.set(newValue);
+    console.log(event);
   }
 
   keyDownHandler(event: KeyboardEvent){
