@@ -1,10 +1,11 @@
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-labs',
   standalone: true,
-  imports: [NgFor],
+  imports: [CommonModule,ReactiveFormsModule ],
   templateUrl: './labs.component.html',
   styleUrls: ['./labs.component.css']
 })
@@ -16,18 +17,37 @@ export class LabsComponent {
   disabled = true;
   img = 'https://ik.imagekit.io/hpapi/harry.jpg';
 
+  person = signal({
+    name: 'Diego',
+    age: 27
+  });
+
+    colorControl = new FormControl();
+    widthControl = new FormControl(50);
+
+
   //Metodo al hacer click en un boton 
-  clickHandler(){
+  clickHandler() {
     alert('Hola');
   }
-  changeHandler(event: Event){
+  changeHandler(event: Event) {
     const input = event.target as HTMLInputElement;
     const newValue = input.value;
     this.name.set(newValue);
     console.log(event);
   }
+  changeAge(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person.update(prevState => {
+      return {
+        ...prevState,
+        age: parseInt(newValue, 10)
+      }
+    });
+  }
 
-  keyDownHandler(event: KeyboardEvent){
+  keyDownHandler(event: KeyboardEvent) {
     const input = event.target as HTMLInputElement;
     console.log(input.value);
   }

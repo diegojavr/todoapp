@@ -30,5 +30,32 @@
     <p>Total: {{tasks().length}}</p>
     <li *ngFor="let task of tasks();index as i">{{i}} {{task}}</li>
   </ul>
+  <hr/>
+  <div *ngIf ="name()==='Diego'">
+    Soy Diego
+  </div>
+  <input type="number" (change)="changeAge($event)">
+  <div *ngIf ="person().name==='Diego' && person().age>18; else elseBlock">
+    Soy Diego y tengo mas de 18 años
+  </div>
+  <ng-template #elseBlock>
+    Soy Diego y soy menor a 18 años
+  </ng-template>
+
+  <hr>
+  <input type="color" [formControl]="colorControl">
+  <p>color: {{colorControl.value}}</p>
+
+
+  <hr>
+  <svg>
+    <g>
+      <rect x="0" y="0" height="100" width="100" [attr.fill]="colorControl.value"/>
+    </g>
+  </svg>
+
+  <hr>
+  <input type="number" [formControl]="widthControl">
+  <span class="box" [style.width.px]="widthControl.value"></span>
 
 </div>
