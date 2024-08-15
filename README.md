@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Todoapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
@@ -28,4 +27,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 =======
 # todoapp
->>>>>>> 551460a1c5b7457858098c1d7c2d6ce35baef949
